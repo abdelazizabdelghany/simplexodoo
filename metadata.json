@@ -1,0 +1,6 @@
+{
+  "name": "Odoo 18 Warehouse Stock Explorer",
+  "description": "Advanced real-time stock and available quantity tracker for specific Odoo 18 warehouse locations with live API connection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
