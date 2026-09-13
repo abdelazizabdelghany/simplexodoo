@@ -113,7 +113,7 @@ export const StockCardGrid: React.FC<StockCardGridProps> = ({
 
                   {/* Title & SKU */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:text-purple-700 transition-colors line-clamp-2">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:text-purple-700 transition-colors">
                       {item.product_name}
                     </h3>
                     

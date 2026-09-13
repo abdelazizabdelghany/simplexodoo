@@ -322,10 +322,17 @@ app.post('/api/odoo/stock', async (req, res) => {
         status = 'low';
       }
 
+      // Clean product name: if Odoo returns "[REF] Product Name (Variant, Attributes)", strip the leading [REF]
+      // to keep exact product name + variants, matching user request:
+      // "Fiber Laser (Open-N, 6020, No, 6 Kw, No, Raytools-MB06k, MAX, FSCUT 2000, Delta, S&A, 50 KVA, None, No, No)"
+      let rawName = (Array.isArray(q.product_id) && q.product_id[1]) ? q.product_id[1] : (prod.name || prod.display_name || 'Unknown Product');
+      // If rawName starts with [REFERENCE] Product..., strip off [REFERENCE] 
+      const cleanedName = rawName.replace(/^\[.*?\]\s*/, '').trim();
+
       return {
         id: q.id,
         product_id: q.product_id[0],
-        product_name: prod.name || q.product_id[1] || 'Unknown Product',
+        product_name: cleanedName || rawName,
         default_code: prod.default_code || '',
         barcode: prod.barcode || '',
         category: Array.isArray(prod.categ_id) ? prod.categ_id[1] : 'General',

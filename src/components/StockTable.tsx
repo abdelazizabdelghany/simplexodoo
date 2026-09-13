@@ -81,7 +81,7 @@ export const StockTable: React.FC<StockTableProps> = ({
                           )}
                         </div>
                         <div className="min-w-0">
-                          <div className="font-bold text-slate-900 group-hover:text-purple-700 transition-colors truncate max-w-xs">
+                          <div className="font-bold text-slate-900 group-hover:text-purple-700 transition-colors leading-snug">
                             {item.product_name}
                           </div>
                           <div className="flex items-center gap-1.5 mt-0.5">
